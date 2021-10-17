@@ -105,7 +105,7 @@ class _MapPageState extends State<MapPage> {
   Widget getBody() {
     return GoogleMap(
       mapType: MapType.normal,
-      myLocationButtonEnabled: false,
+      myLocationButtonEnabled: true,
       initialCameraPosition: _kGooglePlex,
       onMapCreated: (GoogleMapController controller) {
         _controller.complete(controller);

@@ -34,7 +34,7 @@ class _CameraPageState extends State<CameraPage> {
       // Current bug for high / medium with samsung devices.
       _controller = CameraController(
         _cameras[0],
-        ResolutionPreset.medium,
+        ResolutionPreset.low,
       );
 
       await _controller.initialize();
