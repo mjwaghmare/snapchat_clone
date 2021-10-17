@@ -1,3 +1,3 @@
 # SnapchatApp UI Clone
-![App UI](https://user-images.githubusercontent.com/16510597/105662741-13ffbd80-5f03-11eb-95f6-0f0e61772536.jpg)
+![App UI](https://logos-world.net/wp-content/uploads/2020/04/Snapchat-Logo-2019-present.jpg)
 
