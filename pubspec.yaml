@@ -20,6 +20,7 @@ dependencies:
   flutter_icons: ^1.1.0
   page_transition: ^1.1.7+6
   video_player: ^1.0.1
+  google_fonts:
 
 
 dev_dependencies:

@@ -55,7 +55,7 @@ class _RootAppState extends State<RootApp> {
       MaterialIcons.chat_bubble_outline,
       Feather.camera,
       Feather.users,
-      Feather.menu
+      Feather.play
     ];
     List textItems = ["Map", "Chat", "Camera", "Stories", "Discover"];
     List colorItems = [
@@ -74,8 +74,7 @@ class _RootAppState extends State<RootApp> {
               top:
                   BorderSide(width: 2, color: Colors.black.withOpacity(0.06)))),
       child: Padding(
-        padding:
-            const EdgeInsets.only(left: 20, right: 20, bottom: 20, top: 10),
+        padding: const EdgeInsets.only(left: 20, right: 20, top: 10),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -87,21 +86,10 @@ class _RootAppState extends State<RootApp> {
                 child: Column(
                   children: [
                     Icon(iconItems[index],
+                        size: 25,
                         color: pageIndex == index
                             ? colorItems[index]
                             : Colors.white.withOpacity(0.5)),
-                    SizedBox(
-                      height: 5,
-                    ),
-                    Text(
-                      textItems[index],
-                      style: TextStyle(
-                          fontSize: 11,
-                          fontWeight: FontWeight.w500,
-                          color: pageIndex == index
-                              ? Colors.white
-                              : Colors.white.withOpacity(0.5)),
-                    )
                   ],
                 ));
           }),

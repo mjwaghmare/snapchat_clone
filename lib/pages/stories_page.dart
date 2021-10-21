@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 import 'package:page_transition/page_transition.dart';
@@ -34,10 +35,64 @@ class _StoriesPageState extends State<StoriesPage> {
           children: [
             Padding(
               padding: const EdgeInsets.only(left: 10, top: 20, right: 10),
-              child: Text(
-                "For You",
-                style: TextStyle(
-                    fontSize: 16, color: black, fontWeight: FontWeight.bold),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        "Friends",
+                        style: TextStyle(
+                            fontSize: 17,
+                            color: black,
+                            fontWeight: FontWeight.w800),
+                      ),
+                      Container(
+                          width: 105,
+                          height: 30,
+                          padding: const EdgeInsets.all(2.0),
+                          alignment: Alignment.center,
+                          decoration: ShapeDecoration(
+                              color: Colors.grey.withOpacity(0.3),
+                              shape: StadiumBorder()),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Icon(
+                                Icons.add,
+                                color: Colors.purple,
+                              ),
+                              Text(
+                                "My Story ",
+                                style: TextStyle(
+                                    fontSize: 13,
+                                    color: black,
+                                    fontWeight: FontWeight.w800),
+                              ),
+                            ],
+                          ))
+                    ],
+                  ),
+                ],
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 10, top: 20, right: 10),
+              child: Row(
+                children: [
+                  Text(
+                    "Subscriptions",
+                    style: TextStyle(
+                        fontSize: 17,
+                        color: black,
+                        fontWeight: FontWeight.w800),
+                  ),
+                  Icon(
+                    Icons.chevron_right_rounded,
+                    color: Colors.grey,
+                  )
+                ],
               ),
             ),
             Padding(

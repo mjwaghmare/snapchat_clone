@@ -185,17 +185,9 @@ class _CameraPageState extends State<CameraPage> {
                             height: 18,
                           ),
                           Icon(
-                            Entypo.flash,
+                            Icons.bolt,
                             color: Colors.white,
-                            size: 25,
-                          ),
-                          SizedBox(
-                            height: 18,
-                          ),
-                          Icon(
-                            MaterialCommunityIcons.play_box_outline,
-                            color: Colors.white,
-                            size: 25,
+                            size: 30,
                           ),
                           SizedBox(
                             height: 18,
@@ -209,7 +201,7 @@ class _CameraPageState extends State<CameraPage> {
                             height: 18,
                           ),
                           Icon(
-                            Ionicons.ios_arrow_down,
+                            Icons.keyboard_arrow_down_rounded,
                             color: Colors.white,
                             size: 25,
                           ),
