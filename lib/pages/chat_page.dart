@@ -57,7 +57,7 @@ class _ChatPageState extends State<ChatPage> {
           Text(
             "Chat",
             style: TextStyle(
-                fontSize: 18, color: Colors.black, fontWeight: FontWeight.bold),
+                fontSize: 19, color: Colors.black, fontWeight: FontWeight.w700),
           ),
           Row(
             children: [
@@ -109,37 +109,8 @@ class _ChatPageState extends State<ChatPage> {
             SizedBox(
               height: 10,
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Flexible(
-                  child: Container(
-                    height: 1,
-                    decoration:
-                        BoxDecoration(color: Colors.grey.withOpacity(0.2)),
-                  ),
-                ),
-                SizedBox(
-                  width: 10,
-                ),
-                Text(
-                  "Quick Add",
-                  style: TextStyle(color: blue),
-                ),
-                SizedBox(
-                  width: 10,
-                ),
-                Flexible(
-                  child: Container(
-                    height: 1,
-                    decoration:
-                        BoxDecoration(color: Colors.grey.withOpacity(0.2)),
-                  ),
-                ),
-              ],
-            ),
             SizedBox(
-              height: 15,
+              height: 10,
             ),
             Column(
                 children: List.generate(chat_data.length, (index) {
@@ -167,79 +138,72 @@ class _ChatPageState extends State<ChatPage> {
                               SizedBox(
                                 width: 10,
                               ),
-                              Container(
-                                width: (size.width) * 0.3,
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      chat_data[index]['name'],
-                                      style: TextStyle(
-                                          fontSize: 16,
-                                          color: Colors.black,
-                                          fontWeight: FontWeight.w400),
-                                      overflow: TextOverflow.ellipsis,
-                                    ),
-                                    SizedBox(
-                                      height: 3,
-                                    ),
-                                    Text(
-                                      chat_data[index]['nickname'],
-                                      style: TextStyle(
-                                          fontSize: 14,
-                                          color: Colors.black.withOpacity(0.5),
-                                          fontWeight: FontWeight.w400),
-                                      overflow: TextOverflow.ellipsis,
-                                    ),
-                                    SizedBox(
-                                      height: 5,
-                                    ),
-                                    Text(
-                                      "NEW CONTACT",
-                                      style: TextStyle(
-                                          fontSize: 11,
-                                          color: Colors.black.withOpacity(0.5),
-                                          fontWeight: FontWeight.w400),
-                                    )
-                                  ],
+                              Expanded(
+                                child: Container(
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        chat_data[index]['name'],
+                                        style: TextStyle(
+                                            fontSize: 16,
+                                            color: Colors.black,
+                                            fontWeight: FontWeight.w400),
+                                        overflow: TextOverflow.ellipsis,
+                                      ),
+                                      SizedBox(
+                                        height: 5,
+                                      ),
+                                      Row(
+                                        children: [
+                                          chat_data[index]['delivered'] == false
+                                              ? RotatedBox(
+                                                  quarterTurns: 1,
+                                                  child: Icon(
+                                                    Icons.navigation_rounded,
+                                                    color: Colors.blue,
+                                                    size: 14,
+                                                  ),
+                                                )
+                                              : Icon(
+                                                  Icons.crop_square_rounded,
+                                                  color: pink,
+                                                  size: 14,
+                                                ),
+                                          Text(
+                                            chat_data[index]['delivered'] ==
+                                                    true
+                                                ? " Received"
+                                                : " Delivered",
+                                            style: TextStyle(
+                                                fontSize: 13,
+                                                color: Colors.black
+                                                    .withOpacity(0.5),
+                                                fontWeight: FontWeight.w400),
+                                          ),
+                                          //🔥
+                                          Text(
+                                            " . ${chat_data[index]['time']} . ${chat_data[index]['streaks']} 🔥",
+                                            style: TextStyle(
+                                                fontSize: 13,
+                                                color: Colors.grey,
+                                                fontWeight: FontWeight.w400),
+                                          )
+                                        ],
+                                      )
+                                    ],
+                                  ),
                                 ),
                               )
                             ],
                           ),
                         ),
-                        Container(
-                          width: (size.width - 40) * 0.32,
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Container(
-                                decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(30),
-                                    border: Border.all(color: blue)),
-                                child: Padding(
-                                  padding: const EdgeInsets.only(
-                                      right: 10, bottom: 3, left: 5, top: 3),
-                                  child: Row(
-                                    children: [
-                                      Icon(Icons.add, size: 18, color: blue),
-                                      SizedBox(width: 5),
-                                      Text(
-                                        "Add",
-                                        style: TextStyle(color: blue),
-                                      )
-                                    ],
-                                  ),
-                                ),
-                              ),
-                              Icon(
-                                AntDesign.close,
-                                size: 16,
-                                color: darkGrey.withOpacity(0.7),
-                              )
-                            ],
-                          ),
-                        )
+                        Text(
+                          index.isEven ? "😍" : "😊",
+                          style: TextStyle(fontSize: 17),
+                        ),
                       ],
                     ),
                   ),
