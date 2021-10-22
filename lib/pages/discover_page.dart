@@ -4,9 +4,7 @@ import 'package:snapchat_ui/theme/colors.dart';
 import 'package:snapchat_ui/utils/story_template.dart';
 
 class DiscoverPage extends StatefulWidget {
-  final int page;
-
-  const DiscoverPage({Key key, this.page}) : super(key: key);
+  const DiscoverPage({Key key}) : super(key: key);
 
   @override
   _DiscoverPageState createState() => _DiscoverPageState();
@@ -30,7 +28,6 @@ class _DiscoverPageState extends State<DiscoverPage> {
             numberOfComments: '12352',
             numberOfShares: '1222',
             videoUrl: stories_data[0]['videoUrl'],
-            page: widget.page,
           ),
           StoryTemplate(
             username: 'Black Widow',
@@ -39,7 +36,6 @@ class _DiscoverPageState extends State<DiscoverPage> {
             numberOfComments: '15232',
             numberOfShares: '1225',
             videoUrl: stories_data[1]['videoUrl'],
-            page: widget.page,
           ),
           StoryTemplate(
             username: 'Flash',
@@ -48,7 +44,6 @@ class _DiscoverPageState extends State<DiscoverPage> {
             numberOfComments: '1236',
             numberOfShares: '142',
             videoUrl: stories_data[2]['videoUrl'],
-            page: widget.page,
           ),
         ],
       ),

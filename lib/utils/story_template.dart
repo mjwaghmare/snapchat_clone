@@ -10,7 +10,6 @@ class StoryTemplate extends StatelessWidget {
   final String numberOfComments;
   final String numberOfShares;
   final String videoUrl;
-  final int page;
 
   StoryTemplate({
     @required this.username,
@@ -19,7 +18,6 @@ class StoryTemplate extends StatelessWidget {
     @required this.numberOfComments,
     @required this.numberOfShares,
     @required this.videoUrl,
-    @required this.page,
   });
 
   @override
@@ -27,12 +25,9 @@ class StoryTemplate extends StatelessWidget {
     return Scaffold(
       body: Stack(
         children: [
-          // user post (at the very back)
           StoryDetailPage(
             videoUrl: videoUrl,
-            page: page,
           ),
-          // user name and caption
           Padding(
             padding: const EdgeInsets.all(20.0),
             child: Container(

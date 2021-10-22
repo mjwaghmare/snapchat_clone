@@ -95,14 +95,26 @@ class _StoriesPageState extends State<StoriesPage> {
                           BoxDecoration(shape: BoxShape.circle, color: purple),
                       child: Padding(
                         padding: const EdgeInsets.all(2.0),
-                        child: Container(
-                          decoration: BoxDecoration(
-                              border: Border.all(width: 2, color: white),
-                              shape: BoxShape.circle,
-                              image: DecorationImage(
-                                  image:
-                                      NetworkImage(stories_data[index]['img']),
-                                  fit: BoxFit.cover)),
+                        child: GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                PageTransition(
+                                    type: PageTransitionType.scale,
+                                    alignment: Alignment.bottomCenter,
+                                    child: StoryDetailPage(
+                                      videoUrl: stories_data[index]['videoUrl'],
+                                    )));
+                          },
+                          child: Container(
+                            decoration: BoxDecoration(
+                                border: Border.all(width: 2, color: white),
+                                shape: BoxShape.circle,
+                                image: DecorationImage(
+                                    image: NetworkImage(
+                                        stories_data[index]['img']),
+                                    fit: BoxFit.cover)),
+                          ),
                         ),
                       ),
                     ),

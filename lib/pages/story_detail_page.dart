@@ -4,9 +4,8 @@ import 'package:video_player/video_player.dart';
 
 class StoryDetailPage extends StatefulWidget {
   final String videoUrl;
-  final int page;
 
-  const StoryDetailPage({Key key, this.videoUrl, this.page}) : super(key: key);
+  const StoryDetailPage({Key key, this.videoUrl}) : super(key: key);
 
   @override
   _StoryDetailPageState createState() => _StoryDetailPageState();
@@ -19,17 +18,11 @@ class _StoryDetailPageState extends State<StoryDetailPage>
   @override
   void initState() {
     super.initState();
-
-    print("INDEX${widget.page}");
-
-    // if (widget.page == 4) {
-    //
-    // }
     _controller = VideoPlayerController.asset(widget.videoUrl)
       ..initialize().then((_) {
         if (mounted) {
           setState(() {});
-          // _controller.play();
+          // _controller.play();//not playing video on start
           _controller.setVolume(1);
           _controller.setLooping(false);
         }

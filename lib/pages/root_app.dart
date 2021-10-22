@@ -12,18 +12,14 @@ class RootApp extends StatefulWidget {
   _RootAppState createState() => _RootAppState();
 }
 
-int pageIndex = 0;
-
 class _RootAppState extends State<RootApp> {
+  int pageIndex = 0;
   List<Widget> pages = [
     MapPage(),
     ChatPage(),
     CameraPage(),
-    // ChatPage(),
     StoriesPage(),
-    DiscoverPage(
-      page: pageIndex,
-    )
+    DiscoverPage()
   ];
 
   @override
