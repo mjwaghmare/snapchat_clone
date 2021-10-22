@@ -46,7 +46,7 @@ class _StoriesPageState extends State<StoriesPage> {
                       Text(
                         "Friends",
                         style: TextStyle(
-                            fontSize: 17,
+                            fontSize: 16,
                             color: black,
                             fontWeight: FontWeight.w800),
                       ),
@@ -89,8 +89,8 @@ class _StoriesPageState extends State<StoriesPage> {
                   itemBuilder: (ctx, index) => Padding(
                     padding: const EdgeInsets.only(right: 8.0),
                     child: Container(
-                      width: 60,
-                      height: 60,
+                      width: 65,
+                      height: 65,
                       decoration:
                           BoxDecoration(shape: BoxShape.circle, color: purple),
                       child: Padding(
@@ -118,7 +118,7 @@ class _StoriesPageState extends State<StoriesPage> {
                   Text(
                     "Quick Add",
                     style: TextStyle(
-                        fontSize: 17,
+                        fontSize: 16,
                         color: black,
                         fontWeight: FontWeight.w800),
                   ),
@@ -242,7 +242,6 @@ class _StoriesPageState extends State<StoriesPage> {
                   }),
             ),
             //Subscriptions
-            //Subscriptions
             Padding(
               padding: const EdgeInsets.only(left: 10, top: 20, right: 10),
               child: Row(
@@ -250,7 +249,7 @@ class _StoriesPageState extends State<StoriesPage> {
                   Text(
                     "Subscriptions",
                     style: TextStyle(
-                        fontSize: 17,
+                        fontSize: 16,
                         color: black,
                         fontWeight: FontWeight.w800),
                   ),
@@ -312,12 +311,12 @@ class _StoriesPageState extends State<StoriesPage> {
                                 mainAxisAlignment: MainAxisAlignment.end,
                                 children: [
                                   Padding(
-                                    padding: const EdgeInsets.only(left: 10),
+                                    padding: const EdgeInsets.only(left: 3),
                                     child: Text(
                                       stories_data[index]['name'],
                                       style: TextStyle(
                                           color: white,
-                                          fontSize: 16,
+                                          fontSize: 14,
                                           fontWeight: FontWeight.bold),
                                     ),
                                   ),
@@ -338,7 +337,7 @@ class _StoriesPageState extends State<StoriesPage> {
               child: Text(
                 "Discover",
                 style: TextStyle(
-                    fontSize: 17, color: black, fontWeight: FontWeight.w800),
+                    fontSize: 16, color: black, fontWeight: FontWeight.w800),
               ),
             ),
             Padding(
