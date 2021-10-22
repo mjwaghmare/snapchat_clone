@@ -1,7 +1,10 @@
 import 'dart:async';
+import 'dart:typed_data';
+import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:snapchat_ui/data/map_json.dart';
 import 'package:snapchat_ui/theme/colors.dart';
 
 class MapPage extends StatefulWidget {
@@ -11,18 +14,65 @@ class MapPage extends StatefulWidget {
 
 class _MapPageState extends State<MapPage> {
   Completer<GoogleMapController> _controller = Completer();
+  Set<Marker> _markers = {};
 
+  // static final CameraPosition _kGooglePlex = CameraPosition(
+  //   target: LatLng(20.7132, 76.5651),
+  //   zoom: 15.4746,
+  // );
   static final CameraPosition _kGooglePlex = CameraPosition(
-    target: LatLng(20.7132, 76.5651),
-    zoom: 15.4746,
+    target: LatLng(37.42796133580664, -122.085749655962),
+    zoom: 14.4746,
   );
 
   @override
   Widget build(BuildContext context) {
+    createMarkers(context);
     return Scaffold(
       floatingActionButton: getFooter(),
       body: getBody(),
     );
+  }
+
+  createMarkers(BuildContext context) {
+    Marker marker;
+
+    contacts.forEach((contact) async {
+      marker = Marker(
+        markerId: MarkerId(contact['name']),
+        position: contact['position'],
+        icon: await _getAssetIcon(context, contact['marker'])
+            .then((value) => value),
+        infoWindow: InfoWindow(
+          title: contact['name'],
+          snippet: 'Street 6 . 2min ago',
+        ),
+      );
+
+      setState(() {
+        _markers.add(marker);
+      });
+    });
+  }
+
+  Future<BitmapDescriptor> _getAssetIcon(
+      BuildContext context, String icon) async {
+    final Completer<BitmapDescriptor> bitmapIcon =
+        Completer<BitmapDescriptor>();
+    final ImageConfiguration config =
+        createLocalImageConfiguration(context, size: Size(5, 5));
+
+    AssetImage(icon)
+        .resolve(config)
+        .addListener(ImageStreamListener((ImageInfo image, bool sync) async {
+      final ByteData bytes =
+          await image.image.toByteData(format: ImageByteFormat.png);
+      final BitmapDescriptor bitmap =
+          BitmapDescriptor.fromBytes(bytes.buffer.asUint8List());
+      bitmapIcon.complete(bitmap);
+    }));
+
+    return await bitmapIcon.future;
   }
 
   Widget getFooter() {
@@ -105,6 +155,7 @@ class _MapPageState extends State<MapPage> {
   Widget getBody() {
     return GoogleMap(
       mapType: MapType.normal,
+      markers: _markers,
       myLocationButtonEnabled: true,
       initialCameraPosition: _kGooglePlex,
       onMapCreated: (GoogleMapController controller) {
