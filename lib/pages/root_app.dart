@@ -12,15 +12,18 @@ class RootApp extends StatefulWidget {
   _RootAppState createState() => _RootAppState();
 }
 
+int pageIndex = 0;
+
 class _RootAppState extends State<RootApp> {
-  int pageIndex = 0;
   List<Widget> pages = [
     MapPage(),
     ChatPage(),
     CameraPage(),
     // ChatPage(),
     StoriesPage(),
-    DiscoverPage()
+    DiscoverPage(
+      page: pageIndex,
+    )
   ];
 
   @override
@@ -66,15 +69,16 @@ class _RootAppState extends State<RootApp> {
       primary,
     ];
     return Container(
+      alignment: Alignment.center,
       width: double.infinity,
-      height: 90,
+      height: 95,
       decoration: BoxDecoration(
           color: Colors.black,
           border: Border(
               top:
                   BorderSide(width: 2, color: Colors.black.withOpacity(0.06)))),
       child: Padding(
-        padding: const EdgeInsets.only(left: 20, right: 20, top: 10),
+        padding: const EdgeInsets.only(left: 20, right: 20, top: 10, bottom: 5),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,

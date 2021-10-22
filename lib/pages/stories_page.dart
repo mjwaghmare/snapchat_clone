@@ -352,7 +352,7 @@ class _StoriesPageState extends State<StoriesPage> {
                       Navigator.push(
                           context,
                           PageTransition(
-                              type: PageTransitionType.scale,
+                              type: PageTransitionType.bottomToTop,
                               alignment: Alignment.bottomCenter,
                               child: StoryDetailPage(
                                 videoUrl: stories_data[index]['videoUrl'],
